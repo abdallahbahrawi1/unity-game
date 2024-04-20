@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class movement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject gameObject ;
+    public Vector2 position;
     void Start()
     {
-        
+        position = gameObject.transform.position;
     }
 
     // Update is called once per frame
