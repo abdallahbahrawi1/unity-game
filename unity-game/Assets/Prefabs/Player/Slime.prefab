@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 3594826253063385766}
   - component: {fileID: 4393528401473476456}
   - component: {fileID: 1800068766693918230}
-  - component: {fileID: 1769753384065013102}
-  - component: {fileID: 7964877786284094685}
   - component: {fileID: 6367673662525965932}
   - component: {fileID: 6999190304781531579}
   m_Layer: 0
@@ -174,37 +172,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.017489528, y: -0.2193591}
   m_Size: {x: 1.7394216, y: 0.7915222}
   m_Direction: 1
---- !u!114 &1769753384065013102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7160682800606071199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
---- !u!114 &7964877786284094685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7160682800606071199}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: 7ad1af6d3d3381e47a204c181b500405, type: 2}
 --- !u!114 &6367673662525965932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,4 +278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1183f672649f3ff16956df24299893ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMoving: 0
   walkSpeed: 5
+  isfacingRight: 1
