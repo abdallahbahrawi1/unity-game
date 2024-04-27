@@ -38,7 +38,7 @@ public class PlayerControler : MonoBehaviour
         }
         private set{
             _isMoving = value;
-            _animator.SetBool("isMoving", value);   
+            _animator.SetBool(AnimationStrings.isMoving, value);   
         }
     }
     public bool isfacingRight = true;
