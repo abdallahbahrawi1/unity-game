@@ -646,6 +646,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 185092488235137509, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
   m_PrefabInstance: {fileID: 1420528330}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1022952047 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3206561313086886938, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+  m_PrefabInstance: {fileID: 1420528330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1420528330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -694,22 +699,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1800068766693918230, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
-      propertyPath: m_Size.x
-      value: 3.6604917
+    - target: {fileID: 4393528401473476456, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1800068766693918230, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
-      propertyPath: m_Size.y
-      value: 1.4697732
+    - target: {fileID: 4393528401473476456, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1800068766693918230, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.053794682
+    - target: {fileID: 4393528401473476456, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1800068766693918230, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.558484
+    - target: {fileID: 4393528401473476456, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6367673662525965932, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367673662525965932, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367673662525965932, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367673662525965932, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367673662525965932, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367673662525965932, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999190304781531579, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: _rb
+      value: 
+      objectReference: {fileID: 1530762232}
+    - target: {fileID: 6999190304781531579, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1022952047}
     - target: {fileID: 7160682800606071199, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
       propertyPath: m_Name
       value: Player
@@ -719,6 +756,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+--- !u!50 &1530762232 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4393528401473476456, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
+  m_PrefabInstance: {fileID: 1420528330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
