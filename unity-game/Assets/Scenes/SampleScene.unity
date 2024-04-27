@@ -682,6 +682,7 @@ GameObject:
   - component: {fileID: 1411106318}
   - component: {fileID: 1411106324}
   - component: {fileID: 1411106323}
+  - component: {fileID: 1411106325}
   m_Layer: 7
   m_Name: Dynamic Sprite
   m_TagString: Untagged
@@ -827,7 +828,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411106317}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
   m_Name: 
@@ -853,6 +854,25 @@ MonoBehaviour:
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 1002291812}
+--- !u!114 &1411106325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411106317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1183f672649f3ff16956df24299893ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 1002291812}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _isMoving: 0
+  walkSpeed: 5
+  isfacingRight: 1
 --- !u!1 &1441327114
 GameObject:
   m_ObjectHideFlags: 0
