@@ -9,7 +9,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class PlayerControler : MonoBehaviour
 {
-    int jumpCount = 1;
+    [SerializeField]
+    int jumpCount = 0;
     [SerializeField] float dashSpeed = 20f;
     [SerializeField] float dashTime = 0f;
     float startDashTime = 0.2f;
@@ -25,7 +26,8 @@ public class PlayerControler : MonoBehaviour
     // private bool _isIdle = false; 
     public float jumpforce = 11f;
     public float walkSpeed = 5f;
-
+    public float doubleJumpForce = 8f;
+    private bool _doubleJump;
 
     public float CurrentMoveSpeed {
         get {
@@ -109,13 +111,16 @@ public class PlayerControler : MonoBehaviour
             dashTime = startDashTime;
         }
     }
-
     public void OnJump(InputAction.CallbackContext context){
-        //TODO CHECK IF ALIVE AS WELL
+        // //TODO CHECK IF ALIVE AS WELL
         if(context.started && touchingDirections.IsGrounded){
-            animator.SetTrigger(AnimationStrings.jump);
             rb.velocity= new Vector2(rb.velocity.x, jumpforce);
-            jumpCount = 2;
+            _doubleJump = true;
+            animator.SetTrigger(AnimationStrings.jump);
+        }else if(context.started && _doubleJump){
+            rb.velocity= new Vector2(rb.velocity.x, doubleJumpForce);
+            _doubleJump = false;
+            animator.SetTrigger(AnimationStrings.jump);
         }
     }
 
