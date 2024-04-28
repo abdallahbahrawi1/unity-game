@@ -14,12 +14,15 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] Transform groundCheck;
     bool isGrounded = false;
     int jumpCount = 1;
-    float jumpforce = 11f;
+    float jumpforce = 9f;
+    float doubleJumpForce = 7f;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField]float dashSpeed = 20f;
-    [SerializeField]bool isDashing = false;
-    [SerializeField]float dashTime = 0f;
+    float dashSpeed = 20f;
+    bool isDashing = false;
+    float dashTime = 0f;
     float startDashTime = 0.2f;
+    float dashCDTime = 0f;
+    float dashCD = 2.5f;
 
 
 
@@ -68,15 +71,6 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        //Dashing on left-shift click
-        if(Input.GetKeyDown("left shift")){
-            if(!isDashing){
-                walkSpeed += dashSpeed;
-                isDashing = true;
-                dashTime = startDashTime;
-            }
-        }
         //Dash timing
         if(dashTime<=0&&isDashing){
             isDashing = false;
@@ -84,23 +78,21 @@ public class PlayerControler : MonoBehaviour
         }else if(dashTime>0){
             dashTime-= Time.deltaTime;
         }
-        
-        //Jumping logic
-       isGrounded=Physics2D.BoxCast(groundCheck.position,new Vector2(2.5f,0.4f),0f,new Vector2(0f,0f),0.1f,groundLayer);
-       if(isGrounded)jumpCount=1;
-       
-        if(Input.GetButtonDown("Jump")&&(isGrounded||jumpCount<2)){
-              _rb.velocity= new Vector2(_rb.velocity.x,jumpforce);
-              jumpCount++;    
+
+        //dash cd timing
+        if(dashCDTime>0){
+             dashCDTime -= Time.deltaTime;
         }
-        ////////////////
+        
+
         _rb.velocity = new Vector2(_moveInput.x * walkSpeed, _rb.velocity.y);
     }
     
 
     private void FixedUpdate() {
-
-
+       //ground check
+       isGrounded=Physics2D.BoxCast(groundCheck.position,new Vector2(2.5f,0.4f),0f,new Vector2(0f,0f),0.1f,groundLayer);
+       if(isGrounded)jumpCount=1;
         
     }
 
@@ -109,8 +101,23 @@ public class PlayerControler : MonoBehaviour
         IsMoving = _moveInput != Vector2.zero;
         SetFacingDirection(_moveInput); 
     }
+    public void OnDash(InputAction.CallbackContext context){
+         if(!isDashing&&dashCDTime<=0){
+                walkSpeed += dashSpeed;
+                isDashing = true;
+                dashTime = startDashTime;
+                dashCDTime = dashCD;
+            }
+
+    }
+
+
     public void OnJump(InputAction.CallbackContext context){
-        
+        if(isGrounded||jumpCount<=2){
+            if(!isGrounded&&jumpCount==2)_rb.velocity= new Vector2(_rb.velocity.x,doubleJumpForce);
+            else  _rb.velocity= new Vector2(_rb.velocity.x,jumpforce);
+              jumpCount++;    
+        }
     }
 
     private void SetFacingDirection(Vector2 moveInput)
