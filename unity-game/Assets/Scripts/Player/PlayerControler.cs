@@ -9,13 +9,13 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class PlayerControler : MonoBehaviour
 {
-    [SerializeField]
-    int jumpCount = 0;
-    [SerializeField] float dashSpeed = 20f;
-    [SerializeField] float dashTime = 0f;
+    float dashSpeed = 20f;
+    float dashTime = 0f;
+    float dashCD =0f;
+    float dashCDTime = 4f;
     float startDashTime = 0.2f;
     private Vector2 _moveInput;
-    [SerializeField] Rigidbody2D rb;
+    Rigidbody2D rb;
     TouchingDirections touchingDirections;
     Animator animator;
     [SerializeField]
@@ -80,10 +80,6 @@ public class PlayerControler : MonoBehaviour
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
     }
-    void Start()
-    {
-        
-    }
 
     void Update()
     {        
@@ -91,6 +87,10 @@ public class PlayerControler : MonoBehaviour
             _isDashing = false;
         }else if(dashTime > 0){
             dashTime-= Time.deltaTime;
+        }
+
+        if(dashCD > 0){
+             dashCD-= Time.deltaTime;
         }
         rb.velocity = new Vector2(_moveInput.x * CurrentMoveSpeed, rb.velocity.y);
     }
@@ -106,9 +106,10 @@ public class PlayerControler : MonoBehaviour
     }
 
     public void OnDash(InputAction.CallbackContext context){
-        if(context.started && !_isDashing){
+        if(context.started && !_isDashing && dashCD <=0){
             _isDashing = true;
             dashTime = startDashTime;
+            dashCD = dashCDTime;
         }
     }
     public void OnJump(InputAction.CallbackContext context){
