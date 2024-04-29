@@ -1,19 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
  
 public class ProjectileScript : MonoBehaviour{
 
-    [SerializeField] GameObject prefab;
+  [SerializeField] GameObject prefab;
+
 
     void Start(){
     StartCoroutine(SelfDestruct());
 }
+private void OnTriggerEnter2D(Collider2D other) {
+          var point = other.ClosestPoint(this.gameObject.transform.position);
+          var normal = this.gameObject.transform.position - new Vector3(point.x,point.y,0);
+          Instantiate(prefab,point ,Quaternion.Euler(normal.x,normal.y,normal.z));
+          if(other.gameObject.layer == 6){
+            Destroy(this.gameObject);
+          }
+}
+   
 
 IEnumerator SelfDestruct()
 {
-    yield return new WaitForSeconds(1f);
-    Destroy(prefab);
+    yield return new WaitForSeconds(2f);
+    Destroy(this.gameObject);
 }
 
 
