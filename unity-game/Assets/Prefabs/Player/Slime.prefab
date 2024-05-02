@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6367673662525965932}
   - component: {fileID: 6999190304781531579}
   - component: {fileID: 8070963398303533349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,10 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1183f672649f3ff16956df24299893ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpCount: 0
-  dashSpeed: 20
-  dashTime: 0
-  rb: {fileID: 0}
   _isMoving: 0
   _isDashing: 0
   jumpforce: 11
@@ -335,14 +331,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castFilter:
     useTriggers: 0
-    useLayerMask: 0
+    useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 64
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
@@ -362,7 +358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6593292297082984250}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: projectile spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

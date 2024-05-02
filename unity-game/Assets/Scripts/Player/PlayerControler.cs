@@ -31,7 +31,7 @@ public class PlayerControler : MonoBehaviour
 
     public float CurrentMoveSpeed {
         get {
-            if(IsMoving && !touchingDirections.IsOnWall){
+            if(IsMoving && !touchingDirections.IsOnWall && CanMove){
                 if(IsDashing){
                     return dashSpeed;
                 }else{
@@ -75,6 +75,12 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
+    public bool CanMove{
+        get {
+            return animator.GetBool(AnimationStrings.canMove);
+        }
+
+    }
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -113,15 +119,15 @@ public class PlayerControler : MonoBehaviour
         }
     }
     public void OnJump(InputAction.CallbackContext context){
-        // //TODO CHECK IF ALIVE AS WELL
-        if(context.started && touchingDirections.IsGrounded){
+        //TODO CHECK IF ALIVE AS WELL
+        if(context.started && touchingDirections.IsGrounded && CanMove){
             rb.velocity= new Vector2(rb.velocity.x, jumpforce);
             _doubleJump = true;
-            animator.SetTrigger(AnimationStrings.jump);
-        }else if(context.started && _doubleJump){
+            animator.SetTrigger(AnimationStrings.jumpTrigger);
+        }else if(context.started && _doubleJump && CanMove){
             rb.velocity= new Vector2(rb.velocity.x, doubleJumpForce);
             _doubleJump = false;
-            animator.SetTrigger(AnimationStrings.jump);
+            animator.SetTrigger(AnimationStrings.jumpTrigger);
         }
     }
 
@@ -135,4 +141,6 @@ public class PlayerControler : MonoBehaviour
             IsFacingRight = false;
         }
     }
+
+
 }
