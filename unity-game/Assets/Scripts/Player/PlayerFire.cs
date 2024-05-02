@@ -13,6 +13,12 @@ public class PlayerFire : MonoBehaviour
     Vector2 value;
     Vector3 rotations;
     [SerializeField] ProjectileScript projectilePrefab;
+    Animator animator;
+
+
+    void Awake(){
+        animator = GetComponent<Animator>();
+    }
 
 
     void Update(){
@@ -21,9 +27,10 @@ public class PlayerFire : MonoBehaviour
     
     public void OnAttack(InputAction.CallbackContext context){
         if(context.started){
-        var projectile = Instantiate(projectilePrefab,projectileSpawn.position+projectileSpawn.up,projectileSpawn.rotation);
-        projectile.Fire(projectileSpeed,projectileSpawn.up);
-       }
+            animator.SetTrigger(AnimationStrings.attackTrigger);
+            var projectile = Instantiate(projectilePrefab,projectileSpawn.position+projectileSpawn.up,projectileSpawn.rotation);
+            projectile.Fire(projectileSpeed,projectileSpawn.up);
+        }
     }
     
     /*public void OnLook(InputAction.CallbackContext context){
