@@ -8,7 +8,10 @@ using UnityEngine;
 public class SlimeEnemy : MonoBehaviour
 {
     public float walkSpeed = 3f;
+    public float sprintSpeed = 5f;
     public DetectionZone attackZone;
+    public DetectionZone sightingZone;
+    bool hasTargetInSight;
 
     Rigidbody2D rb;
     Animator animator;
@@ -60,13 +63,17 @@ public class SlimeEnemy : MonoBehaviour
     void Update()
     {
         HasTarget = attackZone.detectedColliders.Count > 0;
+        hasTargetInSight = sightingZone.detectedColliders.Count > 0 ;
         if(touchingDirections.IsGrounded && touchingDirections.IsOnWall){
             FlipDirection();
         }
 
-        if(CanMove){
+        if(CanMove && !hasTargetInSight){
             rb.velocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.velocity.y);
-        }else {
+        }else if(CanMove && hasTargetInSight){
+            rb.velocity = new Vector2(sprintSpeed * walkDirectionVector.x, rb.velocity.y);
+        }
+        else {
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
         }
     }
