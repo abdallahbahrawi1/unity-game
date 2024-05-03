@@ -79,8 +79,15 @@ public class PlayerControler : MonoBehaviour
         get {
             return animator.GetBool(AnimationStrings.canMove);
         }
-
     }
+
+    public bool IsAlive {
+        get {
+            return animator.GetBool(AnimationStrings.isAlive);
+        }
+    }
+
+
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -106,9 +113,13 @@ public class PlayerControler : MonoBehaviour
     }
 
     public void OnMove(InputAction.CallbackContext context){
-        _moveInput = context.ReadValue<Vector2>();
-        IsMoving = _moveInput != Vector2.zero;
-        SetFacingDirection(_moveInput); 
+        if(IsAlive){
+            _moveInput = context.ReadValue<Vector2>();
+            IsMoving = _moveInput != Vector2.zero;
+            SetFacingDirection(_moveInput); 
+        }else{
+            IsMoving = false;
+        }
     }
 
     public void OnDash(InputAction.CallbackContext context){
