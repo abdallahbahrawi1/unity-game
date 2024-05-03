@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.95731616, g: 0.6997216, b: 0.47198063, a: 1}
+  m_IndirectSpecularColor: {r: 0.9573351, g: 0.69973606, b: 0.47198272, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2493,17 +2493,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6593292297082984250, guid: 0154ee03ffc1d3d459668603218c3705, type: 3}
   m_PrefabInstance: {fileID: 1420528330}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1654152467 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5885289455433599754, guid: 1009599a528559db6877b740457d4494, type: 3}
-  m_PrefabInstance: {fileID: 3033440252804942206}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66bf09b3bd875df0d94cb9649ecd6754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1676317202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,26 +2685,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7414072075142663643, guid: 1009599a528559db6877b740457d4494, type: 3}
+    - target: {fileID: 3232149483941800637, guid: 1009599a528559db6877b740457d4494, type: 3}
       propertyPath: m_Size.x
-      value: 2.647225
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 7414072075142663643, guid: 1009599a528559db6877b740457d4494, type: 3}
-      propertyPath: m_Offset.x
-      value: -2.590555
+    - target: {fileID: 3232149483941800637, guid: 1009599a528559db6877b740457d4494, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311937838950966310, guid: 1009599a528559db6877b740457d4494, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8637982360585886544, guid: 1009599a528559db6877b740457d4494, type: 3}
       propertyPath: m_Name
       value: RedEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 8637982360585886544, guid: 1009599a528559db6877b740457d4494, type: 3}
-      propertyPath: m_Layer
-      value: 8
+    - target: {fileID: 8924497229304722523, guid: 1009599a528559db6877b740457d4494, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.13
       objectReference: {fileID: 0}
-    - target: {fileID: 8976005562001551813, guid: 1009599a528559db6877b740457d4494, type: 3}
-      propertyPath: attackZone
-      value: 
-      objectReference: {fileID: 1654152467}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
